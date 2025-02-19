@@ -1,2 +1,2 @@
 # Tunnel-via-Azure-Relay
-This repository provides a robust solution for establishing 
+This repository provides a robust solution for establishing fast and reliable tunnels between two machines over a public network using HTTPS on port 443. Leveraging Azure Relay, it enables seamless remote access similar to popular remote desktop applications like AnyDesk or TeamViewer. Users can connect securely without the need for complex VPN setups, making it ideal for accessing devices behind firewalls or NATs. The solution supports various protocols, ensuring flexibility for different use cases.
