@@ -29,4 +29,6 @@ az relay hyco create -g $resourceGroupName --namespace-name $relay --name db
 az relay hyco authorization-rule create -g $resourceGroupName --hybrid-connection-name db --namespace-name $relay -n send --rights Send
 az relay hyco authorization-rule create -g $resourceGroupName --hybrid-connection-name db --namespace-name $relay -n listen --rights Listen
 
+az relay hyco authorization-rule keys list --hybrid-connection-name db --namespace-name $relay -g $resourceGroupName -n send
+az relay hyco authorization-rule keys list --hybrid-connection-name db --namespace-name $relay -g $resourceGroupName -n listen
 ```
