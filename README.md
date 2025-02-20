@@ -69,9 +69,8 @@ LocalForward :
 LogLevel: INFO
 ```
 Execute:
-'''
+```
 azbridge -f .\client.config
-
 ```
 execute
 ```
