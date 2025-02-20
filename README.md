@@ -9,10 +9,7 @@ This repository provides a robust solution for establishing fast and reliable tu
 subscriptionId="your-subscription-id"
 webAppName="hybrid-proxy"
 resourceGroupName="${webAppName}-rg"
-appServicePlan="${webAppName}plan"
 relay="${webAppName}relay"
-containerImage="docker.io/mafamafa/nginx-container-proxy:202502051357"
-SKU="B1"
 location="your-desired-location"
 
 # Set the active subscription
