@@ -38,6 +38,43 @@ az vm create --resource-group $resourceGroupName --name "${relytest}" --image Wi
 ```
 
 # On both machines
-https://github.com/Azure/azure-relay-bridge/releases - download unzip
-Unzip and put c:\azbridge
+Install [https://github.com/Azure/azure-relay-bridge/releases - download unzip](https://github.com/Azure/azure-relay-bridge/releases)
 
+# On server machine with website
+server.config:
+```
+RemoteForward :
+   - RelayName: db
+     Host: 127.0.0.1
+     PortName: http
+     HostPort: 80
+     ConnectionString: Endpoint=sb://rely-test-proxyrelay.servicebus.windows.net/;SharedAccessKeyName=root;SharedAccessKey=xxx;EntityPath=db
+
+LogLevel: INFO
+```
+Execute:
+'''
+azbridge -f .\server.config
+```
+# On server client machine 
+client.config:
+```
+LocalForward :
+  - BindAddress: 10.0.0.4
+    BindPort: 8080
+    PortName: http
+    RelayName: db
+    ConnectionString: Endpoint=sb://rely-test-proxyrelay.servicebus.windows.net/;SharedAccessKeyName=root;SharedAccessKey=xxx;EntityPath=db
+
+LogLevel: INFO
+```
+Execute:
+'''
+azbridge -f .\client.config
+
+```
+execute
+```
+start http://10.0.0.4:8080/
+```
+The site should be loaded
