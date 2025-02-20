@@ -29,3 +29,14 @@ az relay hyco authorization-rule create -g $resourceGroupName --hybrid-connectio
 az relay hyco authorization-rule keys list --hybrid-connection-name db --namespace-name $relay -g $resourceGroupName -n send
 az relay hyco authorization-rule keys list --hybrid-connection-name db --namespace-name $relay -g $resourceGroupName -n listen
 ```
+# Create Second VM
+```
+adminUsername="adminuser"
+adminPassword="YourPassword123!"
+vmSize="Standard_B2s"
+az vm create --resource-group $resourceGroupName \
+    --name "${webAppName}-vm02" \
+    --image Win2019Datacenter \
+    --public-ip-sku Standard \
+    --admin-username $adminUsername --admin-password $adminPassword --size $vmSize --location $location
+```
