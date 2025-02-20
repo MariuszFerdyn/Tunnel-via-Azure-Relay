@@ -53,7 +53,7 @@ RemoteForward :
 LogLevel: INFO
 ```
 Execute:
-'''
+```
 azbridge -f .\server.config
 ```
 # On server client machine 
