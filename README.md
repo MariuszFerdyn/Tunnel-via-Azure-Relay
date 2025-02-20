@@ -7,9 +7,9 @@ This repository provides a robust solution for establishing fast and reliable tu
 
 # Define variables
 subscriptionId="your-subscription-id"
-webAppName="hybrid-proxy"
-resourceGroupName="${webAppName}-rg"
-relay="${webAppName}relay"
+relytest="rely-test-proxy"
+resourceGroupName="${relytest}-rg"
+relay="${relytest}relay"
 location="your-desired-location"
 
 # Set the active subscription
@@ -35,7 +35,7 @@ adminUsername="adminuser"
 adminPassword="YourPassword123!"
 vmSize="Standard_B2s"
 az vm create --resource-group $resourceGroupName \
-    --name "${webAppName}-vm02" \
+    --name "${relytest}-vm02" \
     --image Win2019Datacenter \
     --public-ip-sku Standard \
     --admin-username $adminUsername --admin-password $adminPassword --size $vmSize --location $location
