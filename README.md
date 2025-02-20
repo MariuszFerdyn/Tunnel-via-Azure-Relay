@@ -13,12 +13,12 @@ relay="${webAppName}relay"
 location="your-desired-location"
 
 # Set the active subscription
-az account set --subscription "subscriptionId"
+az account set --subscription $subscriptionId
 
 # create resource group
 az group create --name $resourceGroupName --location $location
 # create relay namespace
-az relay namespace create -g $resourceGroupName --name $relay
+az relay namespace create -g $resourceGroupName --name $relay --location $location
 # create the hybrid connection endpoint 'db'
 az relay hyco create -g $resourceGroupName --namespace-name $relay --name db
 # grant the current user "owner" permission
