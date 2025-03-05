@@ -96,6 +96,10 @@ LogLevel: INFO
 ```
 azbridge -L 127.0.0.1:8181/rdp:finalproxy -x "Endpoint=sb://finalproxy.servicebus.windows.net/;SharedAccessKeyName=finalproxy;SharedAccessKey=xxx=;EntityPath=finalproxy"
 ```
+## For RDP docker example
+```
+docker run --name azbridge-proxy -p 8181:8181 azbridge:0.15 -L 0.0.0.0:8181/rdp:finalproxy -x "Endpoint=sb://finalproxy.servicebus.windows.net/;SharedAccessKeyName=finalproxy;SharedAccessKey=xxx;EntityPath=finalproxy"
+```
 # Start the client
 Execute:
 ```
