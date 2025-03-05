@@ -52,11 +52,23 @@ RemoteForward :
 
 LogLevel: INFO
 ```
+## On server machine RDP example
+```
+RemoteForward :
+   - RelayName: finalproxy
+     Host: 127.0.0.1
+     PortName: rdp
+     HostPort: 3389
+     ConnectionString: Endpoint=sb://rely-test-proxyrelay.servicebus.windows.net/;SharedAccessKeyName=root;SharedAccessKey=xxx;EntityPath=db
+
+LogLevel: INFO
+```
+# Start the server
 Execute:
 ```
 azbridge -f .\server.config
 ```
-# On server client machine 
+# On client machine 
 client.config:
 ```
 LocalForward :
@@ -68,6 +80,23 @@ LocalForward :
 
 LogLevel: INFO
 ```
+## For RDP file example
+cleint.config:
+```
+LocalForward :
+  - BindAddress: 127.0.0.1
+    BindPort: 8181
+    PortName: rdp
+    RelayName: finalproxy
+    ConnectionString: Endpoint=sb://finalproxy.servicebus.windows.net/;SharedAccessKeyName=finalproxy;SharedAccessKey=xxx=;EntityPath=finalproxy
+
+LogLevel: INFO
+```
+## For RDP command example
+```
+azbridge -L 127.0.0.1:8181/rdp:finalproxy -x "Endpoint=sb://finalproxy.servicebus.windows.net/;SharedAccessKeyName=finalproxy;SharedAccessKey=xxx=;EntityPath=finalproxy"
+```
+# Start the client
 Execute:
 ```
 azbridge -f .\client.config
