@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: azbridge to dockerhub
 
 on:
   push:
@@ -29,7 +29,9 @@ jobs:
         wget https://github.com/Azure/azure-relay-bridge/releases/download/v0.15.0/azbridge-oci-image-0.15.0.tar
         docker load -i azbridge-oci-image-0.15.0.tar
         image="${{ secrets.DOCKERHUB_USERNAME }}/azbridge:0.15"
+        echo  "--------- Images ---------"
         docker images
-        docker tag azbridge:0.15.0 $image
+        docker tag azbridge:0.15 $image
+        echo  "---- Images after TAG ----"
         docker images
         docker push $image
